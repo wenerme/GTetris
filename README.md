@@ -14,6 +14,12 @@
 * [运行程序](http://resources.wener.me/java/GTetris.jnlp)
 * [源代码打包下载](https://github.com/WenerLove/GTetris/archive/master.zip)
 
+游戏特色/Features
+--------
+
+* 可操控,当前最多可三个玩家同时操作
+* 可保存
+
 截图/Screenshot
 ----
 
@@ -41,11 +47,14 @@ i,j,k,l
 第三个玩家
 上下左右
 
-游戏特色/Features
---------
 
-* 可操控,当前最多可三个玩家同时操作
-* 可保存
+Thanks
+---------
+
+标题字体 [Slice](http://www.dafont.com/christian-munk.d3941?fpp=50&text=Wener)
+
+常用字体 [Visitor](http://www.dafont.com/font-comment.php?file=visitor&fpp=50&text=Wener)
+
 
 TODO
 ----
