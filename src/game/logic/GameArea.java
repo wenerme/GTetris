@@ -129,6 +129,7 @@ public class GameArea
 	GameArea generateNextShape()
 	{
 		nextShape = CubeShapeManager.getRadomCubeShape();
+		OnNextShapeChanged();
 		return this;
 	}
 	boolean generatePlayerShape(GamePlayer player)
@@ -260,6 +261,13 @@ public class GameArea
 		if(eventListener != null)
 		{
 			eventListener.OnGotPoint(this, player, point);
+		}
+	}
+	void OnNextShapeChanged()
+	{
+		if(eventListener != null)
+		{
+			eventListener.OnNextShapeChanged(this, nextShape);
 		}
 	}
 	// }}

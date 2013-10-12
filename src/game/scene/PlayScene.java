@@ -30,6 +30,7 @@ import game.Game;
 import game.GameSetting;
 import game.U5;
 import game.logic.CubeGraphics;
+import game.logic.CubeShape;
 import game.logic.GameArea;
 import game.logic.GameAreaEventListener;
 import game.logic.GameData;
@@ -194,7 +195,7 @@ public class PlayScene extends GScene
 			Font font = UISetting.MiniFont.deriveFont(20f);
 			
 			timeLabel = new GLabel();
-			timeLabel.setText("TIME: 0000");
+			timeLabel.setText("TIME: 00000");
 			timeLabel.setFont(font);
 			timeLabel.setSize(timeLabel.getPreferredSize());
 			timeLabel.setLocation(getWidth()-timeLabel.getWidth(), 0);
@@ -204,7 +205,7 @@ public class PlayScene extends GScene
 			pointLabel.setText("POINT: 0000");
 			pointLabel.setFont(font);
 			pointLabel.setSize(pointLabel.getPreferredSize());
-			pointLabel.setLocation((getWidth() - pointLabel.getWidth())/2, 0);
+			pointLabel.setLocation(getWidth() - pointLabel.getWidth(), pointLabel.getHeight());
 			add(pointLabel);
 		}
 		// 设置玩家按键映射
@@ -266,7 +267,7 @@ public class PlayScene extends GScene
 	}
 	boolean doAction(SceneAction action)
 	{
-		System.out.println("Play Scene Action "+ action);
+//		System.out.println("Play Scene Action "+ action);
 		if (action == null)
 			return false;
 		// 当游戏结束后,有些动作不能做
@@ -508,6 +509,13 @@ public class PlayScene extends GScene
 		player.increasePoint(point);
 		increasePoint(point);
 	}
+
+	@Override
+	public void OnNextShapeChanged(GameArea area, CubeShape nextShape)
+	{
+		cubeGraphics.setNextCubeMartix(nextShape.getCurrentInfoeArray());
+	}
+
 	// }}
 
 }

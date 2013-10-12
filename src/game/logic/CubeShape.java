@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
  */
 @Accessors(chain=true)
 @Data
-class CubeShape
+public class CubeShape
 	implements Serializable
 {
 	/**
