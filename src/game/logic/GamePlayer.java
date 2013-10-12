@@ -1,6 +1,5 @@
 package game.logic;
 
-import game.U5;
 import game.logic.GameArea.CollisionType;
 
 import java.io.Serializable;
@@ -9,8 +8,6 @@ import java.util.Map;
 
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
@@ -19,6 +16,7 @@ import lombok.experimental.Accessors;
 public class GamePlayer
 	implements Serializable
 {
+	private static final long serialVersionUID = 1L;
 	int point;
 	String name;
 	@Setter(value=AccessLevel.PACKAGE) GameArea  gameArea;

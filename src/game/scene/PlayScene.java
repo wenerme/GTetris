@@ -1,30 +1,19 @@
 package game.scene;
 
-import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.Map.Entry;
-
-import javax.swing.BorderFactory;
 import javax.swing.JComponent;
-import javax.swing.SwingConstants;
-
 import lombok.Getter;
 import game.Game;
 import game.GameSetting;
@@ -37,12 +26,10 @@ import game.logic.GameData;
 import game.logic.GamePlayer;
 import game.logic.GamePlayerAction;
 import game.ui.DialogResultListener;
-import game.ui.GButton;
 import game.ui.GDialogPanel;
 import game.ui.GLabel;
 import game.ui.GLayeredPane;
 import game.ui.GMenuListPanel;
-import game.ui.GPanel;
 import game.ui.GScene;
 import game.ui.MessageBox;
 import game.ui.SceneManager;
@@ -279,6 +266,7 @@ public class PlayScene extends GScene
 			case AddPlayer:
 				
 			return true;
+			default:
 		}
 		//
 		switch (action)

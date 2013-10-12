@@ -97,8 +97,6 @@ class BubbleBorder extends AbstractBorder
 		Graphics2D g2 = (Graphics2D) g;
 		// 修正背景色的问题
 		g2.setBackground(c.getBackground());
-		
-		int bottomLineY = height - thickness - pointerSize;
 
 		RoundRectangle2D.Double bubble;
 		Polygon pointer = new Polygon();

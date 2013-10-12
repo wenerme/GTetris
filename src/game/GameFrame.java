@@ -1,39 +1,32 @@
 package game;
 
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.DisplayMode;
-import java.awt.EventQueue;
 import java.awt.GraphicsEnvironment;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import game.*;
-import game.logic.GamePlayerAction;
+import javax.swing.SwingUtilities;
 import game.scene.MainMenuScene;
 import game.scene.PlayScene;
 import game.ui.GLayeredPane;
-import game.ui.GPanel;
-import game.ui.MessageBox;
 import game.ui.SceneManager;
 
-import java.awt.Window.Type;
 
 
 
+public class GameFrame extends JFrame 
+{
 
-public class GameFrame extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	GLayeredPane contentPane;
 	Game game;
 	
 	
 	public static void main(String[] args)
 	{
-		EventQueue.invokeLater(new Runnable()
+		SwingUtilities.invokeLater(new Runnable()
 		{
 			public void run()
 			{
@@ -49,9 +42,6 @@ public class GameFrame extends JFrame {
 		});
 	}
 	
-	/**
-	 * Create the frame.
-	 */
 	public GameFrame() {
 		
 		setResizable(false);
@@ -69,6 +59,7 @@ public class GameFrame extends JFrame {
 		setContentPane(contentPane);
 		
 		postInitialize();
+		
 		pack();
 		
 	}
@@ -78,6 +69,7 @@ public class GameFrame extends JFrame {
 		game = new Game();
 		SceneManager sceneManager = game.getSceneManager();
 		
+		// 设置标题
 		{
 			String title = "%s v%s %s";
 			title = String.format(title, GameSetting.title, GameSetting.Version,GameSetting.authorList.toString());

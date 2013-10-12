@@ -4,8 +4,6 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.Getter;
-
 
 /**
  * 游戏设置

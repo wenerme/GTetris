@@ -1,19 +1,15 @@
 package game.ui;
 
-import game.scene.PlayScene.SceneAction;
-
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.swing.BorderFactory;
-import javax.swing.JComponent;
 import javax.swing.SwingConstants;
 
 import lombok.Getter;
@@ -24,6 +20,7 @@ import lombok.experimental.Accessors;
 public class GMenuListPanel extends GPanel
 	implements ActionListener
 {
+	private static final long serialVersionUID = 1L;
 	Font menuFont;
 	@Getter GLabel titleLabel;
 	@Getter GPanel buttonPanel;

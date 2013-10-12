@@ -4,33 +4,21 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.StringWriter;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Random;
 import java.util.Map.Entry;
+import java.util.Random;
 import java.util.Set;
 
-import javax.management.openmbean.InvalidOpenTypeException;
+import lombok.SneakyThrows;
 
 import org.apache.commons.io.IOUtils;
-
-import lombok.SneakyThrows;
 
 public class U5
 {
@@ -158,6 +146,7 @@ public class U5
 	/**
 	 * 反序列化对象,失败的时候返回null
 	 */
+	@SuppressWarnings("unchecked")
 	@SneakyThrows
 	public static <T> T DeserializeObject(byte[] bytes)
 	{

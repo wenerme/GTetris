@@ -1,7 +1,5 @@
 package game.ui;
 
-import game.GameSetting;
-
 import javax.swing.JComponent;
 
 @SuppressWarnings("serial")

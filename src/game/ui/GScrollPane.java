@@ -6,6 +6,7 @@ import javax.swing.JScrollPane;
 
 public class GScrollPane extends JScrollPane
 {
+	private static final long serialVersionUID = 1L;
 	public GScrollPane()
 	{
 		UISetting.ApplySetting(this);

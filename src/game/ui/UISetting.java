@@ -1,19 +1,12 @@
 package game.ui;
 
-import game.Game;
-import game.GameSetting;
 import game.res.FontRes;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.FontFormatException;
-import java.io.File;
-import java.io.IOException;
 
 import javax.swing.JComponent;
-import javax.swing.JPanel;
 import javax.swing.UIManager;
-import javax.swing.plaf.FontUIResource;
 
 /**
  * 关于UI的设置

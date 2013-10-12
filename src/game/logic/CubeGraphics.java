@@ -2,7 +2,6 @@ package game.logic;
 
 import game.GameSetting;
 import game.ui.GComponent;
-import game.ui.UISetting;
 
 import java.awt.Graphics;
 
@@ -10,9 +9,10 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 @Accessors(chain = true)
-public @Data
-class CubeGraphics extends GComponent
+public @Data class CubeGraphics extends GComponent
 {
+
+	private static final long serialVersionUID = 1L;
 	CubeInfo[][] cubeMatrix;
 	CubeInfo[][] nextCubeMartix;
 	static int nextCubeSize = GameSetting.cubeSize / 4;

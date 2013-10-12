@@ -1,12 +1,11 @@
 package game.ui;
 
-import java.awt.Dimension;
-import java.awt.Insets;
-
 import javax.swing.JTextArea;
 
 public class GTextArea extends JTextArea
 {
+	private static final long serialVersionUID = 1L;
+
 	public GTextArea()
 	{
 		UISetting.ApplySetting(this);

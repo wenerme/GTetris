@@ -33,6 +33,8 @@ import javax.swing.JLabel;
 public class MainMenuScene extends GScene
 	implements KeyListener, ActionListener
 {
+	private static final long serialVersionUID = 1L;
+
 	public enum SceneAction
 	{
 		StartGame("StartName"),

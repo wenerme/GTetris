@@ -1,20 +1,19 @@
 package game.logic;
-import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.val;
 import lombok.experimental.Accessors;
 
 @Accessors(chain=true)
 public class GameArea
 	implements Serializable
 {
+
+	private static final long serialVersionUID = 1L;
 	public enum CollisionType
 	{
 		/**

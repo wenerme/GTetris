@@ -159,6 +159,7 @@ public final class MessageBox
 
 class GNotifyLabel extends GLabel
 {
+	private static final long serialVersionUID = 1L;
 	GNotifyLabel()
 	{
 		UISetting.ApplySetting(this);

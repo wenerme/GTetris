@@ -1,12 +1,6 @@
 package game.ui;
 import game.GameSetting;
 
-import java.awt.Color;
-import java.awt.event.KeyListener;
-import java.util.jar.Attributes.Name;
-
-import javax.swing.JPanel;
-
 /**
  * 游戏场景
  * @author Wener
@@ -15,6 +9,8 @@ import javax.swing.JPanel;
 public abstract class GScene
 	extends GLayeredPane
 {
+	 
+	private static final long serialVersionUID = 1L;
 	protected SceneManager sceneManager;
 
 	public GScene()

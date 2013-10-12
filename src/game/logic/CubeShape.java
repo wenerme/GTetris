@@ -20,6 +20,8 @@ import lombok.experimental.Accessors;
 public class CubeShape
 	implements Serializable
 {
+
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 恒定宽
 	 */

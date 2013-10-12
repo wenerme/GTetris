@@ -2,11 +2,11 @@ package game.ui;
 
 import java.awt.Dialog;
 import java.awt.Frame;
-import java.awt.GraphicsConfiguration;
-import java.awt.Window;
 
 public class GDialog extends Dialog
 {
+
+	private static final long serialVersionUID = 1L;
 
 	public GDialog(Frame owner)
 	{

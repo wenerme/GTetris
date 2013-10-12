@@ -1,5 +1,4 @@
 package game;
-import java.io.InputStream;
 import java.net.URL;
 
 import game.ui.SceneManager;

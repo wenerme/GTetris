@@ -22,6 +22,7 @@ import lombok.experimental.Accessors;
 public class GDialogPanel extends JPanel
 	implements ActionListener
 {
+	private static final long serialVersionUID = 1L;
 	public static EnumMap<DialogButton, String> DialogButtonText;
 	public enum DialogButton
 	{

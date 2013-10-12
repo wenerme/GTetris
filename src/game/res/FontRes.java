@@ -1,7 +1,6 @@
 package game.res;
 
 import java.awt.Font;
-import java.io.File;
 
 import javax.swing.plaf.FontUIResource;
 

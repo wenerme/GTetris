@@ -1,7 +1,6 @@
 package game.logic;
 
 import java.io.Serializable;
-import java.util.List;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -13,6 +12,7 @@ import lombok.experimental.Accessors;
 public @Data class GameData
 	implements Serializable
 {
+	private static final long serialVersionUID = 1L;
 	int point;
 	int time;
 	GameArea gameArea;
