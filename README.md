@@ -5,8 +5,6 @@
 
 作者: wener
 
-邮箱: wenermail@gmail.com
-
 网站: http://blog.wener.me
 
 * [项目地址](https://github.com/WenerLove/GTetris)
