@@ -35,7 +35,7 @@ import lombok.SneakyThrows;
 public class U5
 {
 	static Random random;
-	
+	static String charset;
 	static
 	{
 		random = new Random();
@@ -66,12 +66,29 @@ public class U5
 		return null;
 	}
 	
-	public static String FileGetContents(String filePath)
+	// {{ file
+	public void setFileCharset(String charset)
 	{
-		return FileGetContents(filePath, "UTF-8");
+		U5.charset = charset;
 	}
+	
 	@SneakyThrows
-	public static String FileGetContents(String filePath, String charset)
+	public static String FileGetContents(InputStream stream)
+	{
+		String result = null;
+		try
+		{
+			result = IOUtils.toString(stream,charset);
+		} catch (Exception e)
+		{
+			result = null;
+			throw e;
+		}
+		return result;
+	}
+
+	@SneakyThrows
+	public static String FileGetContents(String filePath)
 	{
 		String result = null;
 		try
@@ -81,7 +98,6 @@ public class U5
 		{
 			result = null;
 			throw e;
-			
 		}
 		return result;
 	}
@@ -114,6 +130,9 @@ public class U5
 		}
 		return result;
 	}
+	// }}
+	
+	// {{ Serialize
 	/**
 	 * 序列化对象,失败的时候返回null
 	 */
@@ -173,6 +192,9 @@ public class U5
 		}
 		return result;
 	}
+	
+	//}}
+	
 	// {{ Random
 	public static void setRandomSeed(long seed)
 	{

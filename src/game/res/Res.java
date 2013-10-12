@@ -1,7 +1,5 @@
 package game.res;
 
-import game.Game;
-
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -41,7 +39,8 @@ public class Res
 	}
 	public String getResourceFile()
 	{
-		return getResource().getFile();
+		System.out.printf("Res: %s\nFile:%s\n", getResource(), getResource().getFile());
+		return getResource().toString();
 	}
 	//
 	/**

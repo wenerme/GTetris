@@ -26,9 +26,7 @@ public enum FontRes
 	@SneakyThrows
 	public Font getFont()
 	{
-		File file;
-		file = new File(res.getResourceFile());
-		return FontUIResource.createFont(FontUIResource.TRUETYPE_FONT, file);
+		return FontUIResource.createFont(FontUIResource.TRUETYPE_FONT, res.getResourceAsStream());
 
 	}
 //}}

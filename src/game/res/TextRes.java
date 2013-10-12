@@ -18,7 +18,7 @@ public enum TextRes
 	}
 	public String getText()
 	{
-		return U5.FileGetContents(res.getResourceFile());
+		return U5.FileGetContents(res.getResourceAsStream());
 	}
 	//}}
 }
