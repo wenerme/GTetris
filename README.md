@@ -14,6 +14,11 @@
 * [运行程序](http://resources.wener.me/java/GTetris.jnlp)
 * [源代码打包下载](https://github.com/WenerLove/GTetris/archive/master.zip)
 
+截图
+----
+
+![GTetris screenschot](/screenshot.png "GTetris")
+
 按键
 ------
 
