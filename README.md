@@ -14,17 +14,22 @@
 * [运行程序](http://resources.wener.me/java/GTetris.jnlp)
 * [源代码打包下载](https://github.com/WenerLove/GTetris/archive/master.zip)
 
-截图
+截图/Screenshot
 ----
+
+![GTetris screenschot](/screenshot-main.png "GTetris")
 
 ![GTetris screenschot](/screenshot.png "GTetris")
 
-按键
+按键/Shortcuts
 ------
 
 Esc: 暂停
+
 1: 保存
+
 2: 加载
+
 4: 加入玩家
 
 第一个玩家
@@ -35,6 +40,12 @@ i,j,k,l
 
 第三个玩家
 上下左右
+
+游戏特色/Features
+--------
+
+* 可操控,当前最多可三个玩家同时操作
+* 可保存
 
 TODO
 ----

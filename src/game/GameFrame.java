@@ -14,7 +14,6 @@ import game.ui.SceneManager;
 
 
 
-
 public class GameFrame extends JFrame 
 {
 
