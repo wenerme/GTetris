@@ -17,6 +17,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.StringWriter;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashSet;
@@ -24,6 +25,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import javax.management.openmbean.InvalidOpenTypeException;
 
 import org.apache.commons.io.IOUtils;
 
@@ -63,17 +66,22 @@ public class U5
 		return null;
 	}
 	
-	@SneakyThrows
 	public static String FileGetContents(String filePath)
+	{
+		return FileGetContents(filePath, "UTF-8");
+	}
+	@SneakyThrows
+	public static String FileGetContents(String filePath, String charset)
 	{
 		String result = null;
 		try
 		{
-			result = IOUtils.toString(new FileReader(filePath));
+			result = IOUtils.toString(new FileInputStream(filePath),charset);
 		} catch (Exception e)
 		{
 			result = null;
 			throw e;
+			
 		}
 		return result;
 	}

@@ -19,9 +19,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -66,7 +68,7 @@ public class MainMenuScene extends GScene
 	    	return actionMap.get(name);
 	    }
 	}
-
+	List<String> tips;
 	public MainMenuScene()
 	{
 		super();
@@ -127,12 +129,28 @@ public class MainMenuScene extends GScene
 			label.setLocation((getWidth() - label.getWidth())/2, 120);
 			add(label);
 		}
+		
+		// tips
+		{
+			tips = new ArrayList<String>();
+			tips.add("我的小网站: http://blog.wener.me");
+			tips.add("该项目地址: https://github.com/WenerLove/GTetris");
+			tips.add("我的围脖: http://weibo.com/u/2705020605/");
+			tips.add("非死不可: http://www.facebook.com/wenerme");
+			tips.add("游戏中按 4 添加玩家");
+			tips.add("游戏中按 2 加载游戏");
+			tips.add("游戏中按 1 保存游戏");
+			tips.add("游戏中按 6 从新开始游戏");
+			tips.add("啊!今天天气不错的样子!");
+			tips.add("好像今天运气不错,去打一注!");
+			
+		}
 	}
 
 	public void enterStage(SceneManager sceneManager)
 	{	
 		super.enterStage(sceneManager);
-		MessageBox.ShowNotify("我的网站 http://wener.me",0);
+		MessageBox.ShowNotify(tips.get(U5.randomInt(tips.size())),0);
 	}
 	
 	@Override
