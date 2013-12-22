@@ -1,3 +1,10 @@
+<!-- title: 多控版 俄罗斯方块-GTetris,java swing 实现 -->
+<!-- tag: java -->
+<!-- category: Game -->
+<!-- date: 2013/12/20 -->
+<!-- state: published -->
+<!-- link: gtetris -->
+
 俄罗斯方块/GTetris
 ==========
 
