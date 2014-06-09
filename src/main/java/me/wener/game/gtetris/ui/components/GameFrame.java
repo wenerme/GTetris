@@ -1,4 +1,4 @@
-package me.wener.game.gtetris.ui;
+package me.wener.game.gtetris.ui.components;
 
 
 import java.awt.Color;
@@ -9,8 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import me.wener.game.gtetris.Game;
 import me.wener.game.gtetris.GameSetting;
-import me.wener.game.gtetris.scene.MainMenuScene;
-import me.wener.game.gtetris.scene.PlayScene;
+import me.wener.game.gtetris.ui.scene.MainMenuScene;
+import me.wener.game.gtetris.ui.scene.PlayScene;
+import me.wener.game.gtetris.ui.SceneManager;
 
 
 public class GameFrame extends JFrame

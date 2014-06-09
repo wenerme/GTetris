@@ -1,5 +1,6 @@
-package me.wener.game.gtetris.ui;
+package me.wener.game.gtetris.ui.components;
 
+import me.wener.game.gtetris.ui.UISetting;
 import me.wener.game.gtetris.utils.U5;
 
 import java.awt.BorderLayout;
@@ -44,7 +45,8 @@ public class GDialogPanel extends JPanel
 	GTextArea textArea;
 	GPanel buttonPanel;
 	DialogButton[] buttonOption;
-	@Setter @Getter DialogResultListener resultListener;
+	@Setter @Getter
+    DialogResultListener resultListener;
 	public GDialogPanel()
 	{
 		UISetting.ApplySetting(this);

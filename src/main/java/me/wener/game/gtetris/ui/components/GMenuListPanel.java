@@ -1,4 +1,4 @@
-package me.wener.game.gtetris.ui;
+package me.wener.game.gtetris.ui.components;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import me.wener.game.gtetris.ui.UISetting;
 
 @Accessors(chain=true)
 public class GMenuListPanel extends GPanel

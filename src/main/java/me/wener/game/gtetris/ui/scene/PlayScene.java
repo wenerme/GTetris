@@ -1,4 +1,4 @@
-package me.wener.game.gtetris.scene;
+package me.wener.game.gtetris.ui.scene;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -25,16 +25,16 @@ import me.wener.game.gtetris.logic.GameAreaEventListener;
 import me.wener.game.gtetris.logic.GameData;
 import me.wener.game.gtetris.logic.GamePlayer;
 import me.wener.game.gtetris.logic.GamePlayerAction;
-import me.wener.game.gtetris.ui.DialogResultListener;
-import me.wener.game.gtetris.ui.GDialogPanel;
-import me.wener.game.gtetris.ui.GLabel;
-import me.wener.game.gtetris.ui.GLayeredPane;
-import me.wener.game.gtetris.ui.GMenuListPanel;
-import me.wener.game.gtetris.ui.GScene;
+import me.wener.game.gtetris.ui.components.DialogResultListener;
+import me.wener.game.gtetris.ui.components.GDialogPanel;
+import me.wener.game.gtetris.ui.components.GLabel;
+import me.wener.game.gtetris.ui.components.GLayeredPane;
+import me.wener.game.gtetris.ui.components.GMenuListPanel;
+import me.wener.game.gtetris.ui.components.GScene;
 import me.wener.game.gtetris.ui.MessageBox;
 import me.wener.game.gtetris.ui.SceneManager;
 import me.wener.game.gtetris.ui.UISetting;
-import me.wener.game.gtetris.ui.GDialogPanel.DialogButton;
+import me.wener.game.gtetris.ui.components.GDialogPanel.DialogButton;
 
 public class PlayScene extends GScene
 	implements KeyListener, GameAreaEventListener
@@ -370,7 +370,7 @@ public class PlayScene extends GScene
 		return sceneActionMap.get(keyCode);
 	}
 	@Override
-	protected void enterStage(SceneManager sceneManager)
+    public void enterStage(SceneManager sceneManager)
 	{
 		super.enterStage(sceneManager);
 		MessageBox.clearAllNotify();
@@ -424,7 +424,7 @@ public class PlayScene extends GScene
 	}
 
 	@Override
-	protected void leaveStage(SceneManager sceneManager)
+    public void leaveStage(SceneManager sceneManager)
 	{
 		super.leaveStage(sceneManager);
 		gameTimer.cancel();

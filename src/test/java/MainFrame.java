@@ -1,9 +1,9 @@
 import me.wener.game.gtetris.utils.U5;
-import me.wener.game.gtetris.ui.DialogResultListener;
-import me.wener.game.gtetris.ui.GDialogPanel;
-import me.wener.game.gtetris.ui.GLayeredPane;
+import me.wener.game.gtetris.ui.components.DialogResultListener;
+import me.wener.game.gtetris.ui.components.GDialogPanel;
+import me.wener.game.gtetris.ui.components.GLayeredPane;
 import me.wener.game.gtetris.ui.MessageBox;
-import me.wener.game.gtetris.ui.GDialogPanel.DialogButton;
+import me.wener.game.gtetris.ui.components.GDialogPanel.DialogButton;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -138,8 +138,8 @@ public class MainFrame extends JFrame
 		
 		ClassLoader classLoader = Thread.currentThread()
 				.getContextClassLoader();
-		System.out.println(U5.FileGetContents(classLoader.getResource("me/wener/game/gtetris/res/about.txt").getFile()));
-		System.out.println(classLoader.getResource("me/wener/game/gtetris/res/mini.ttf"));
+		System.out.println(U5.FileGetContents(classLoader.getResource("me/wener/game/gtetris/ui/res/about.txt").getFile()));
+		System.out.println(classLoader.getResource("me/wener/game/gtetris/ui/res/mini.ttf"));
 		
 		Object data = new MyData();
 		byte[] bytes = U5.SerializeObject(data);

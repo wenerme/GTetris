@@ -1,15 +1,18 @@
 package me.wener.game.gtetris.logic;
 
+import lombok.EqualsAndHashCode;
 import me.wener.game.gtetris.GameSetting;
-import me.wener.game.gtetris.ui.GComponent;
+import me.wener.game.gtetris.ui.components.GComponent;
 
 import java.awt.Graphics;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+@EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public @Data class CubeGraphics extends GComponent
+@Data
+public class CubeGraphics extends GComponent
 {
 
 	private static final long serialVersionUID = 1L;

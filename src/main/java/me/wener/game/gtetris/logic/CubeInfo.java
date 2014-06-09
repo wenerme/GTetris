@@ -7,7 +7,8 @@ import lombok.NonNull;
 import lombok.experimental.Accessors;
 
 @Accessors(chain=true)
-public @Data class CubeInfo
+@Data
+public class CubeInfo
 	implements Serializable
 {
 	private static final long serialVersionUID = 1L;

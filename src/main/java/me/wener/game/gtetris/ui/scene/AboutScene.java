@@ -1,6 +1,6 @@
-package me.wener.game.gtetris.scene;
+package me.wener.game.gtetris.ui.scene;
 
-import me.wener.game.gtetris.ui.GScene;
+import me.wener.game.gtetris.ui.components.GScene;
 
 
 public class AboutScene extends GScene

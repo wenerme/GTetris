@@ -10,6 +10,8 @@ import lombok.NonNull;
 import lombok.Setter;
 import lombok.SneakyThrows;
 import lombok.experimental.Accessors;
+import me.wener.game.gtetris.ui.components.GLayeredPane;
+import me.wener.game.gtetris.ui.components.GScene;
 
 /**
  * 场景管理器
@@ -19,8 +21,10 @@ import lombok.experimental.Accessors;
 public class SceneManager
 {
 
-	@Getter GLayeredPane stage;
-	@Getter GScene currentScene;
+	@Getter
+    GLayeredPane stage;
+	@Getter
+    GScene currentScene;
 	String lastSceneName;
 	@Getter Map<String, GScene> sceneMap;
 	/**
@@ -107,7 +111,7 @@ public class SceneManager
 		{
 			sceneMap.put(scene.getName(), scene);
 			scene.setVisible(false);
-			scene.sceneManager = this;
+			scene.setSceneManager(this);
 		}else {
 			throw new Exception("scene '"+scene.getName()+"' already exists");
 		}

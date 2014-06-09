@@ -1,8 +1,9 @@
-package me.wener.game.gtetris.ui;
+package me.wener.game.gtetris.ui.components;
 
 import java.awt.Component;
 
 import javax.swing.JScrollPane;
+import me.wener.game.gtetris.ui.UISetting;
 
 public class GScrollPane extends JScrollPane
 {

@@ -1,5 +1,6 @@
-package me.wener.game.gtetris.ui;
+package me.wener.game.gtetris.ui.components;
 import javax.swing.JLabel;
+import me.wener.game.gtetris.ui.UISetting;
 
 
 public class GLabel extends JLabel {

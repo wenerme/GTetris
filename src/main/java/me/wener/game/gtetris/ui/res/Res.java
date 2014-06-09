@@ -1,4 +1,4 @@
-package me.wener.game.gtetris.res;
+package me.wener.game.gtetris.ui.res;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -15,7 +15,7 @@ public class Res
 	private ResType type;
 	private String description;
 	private static List<Res> resList = new ArrayList<Res>();
-	
+	private static String rootPath="me.wener.game.gtetris.ui.res/";
 	public Res(ResType type,String path)
 	{
 		this(type, path, "");
@@ -23,7 +23,7 @@ public class Res
 	public Res(ResType type,String path, String description)
 	{
 		this.type = type;
-		this.path = path;
+		this.path = rootPath+path;
 		this.description = description;
 		
 		resList.add(this);
@@ -35,7 +35,7 @@ public class Res
 	}
 	public InputStream getResourceAsStream()
 	{
-		return Res.class.getResourceAsStream(path);
+		return this.getClass().getClassLoader().getResourceAsStream(getPath());
 	}
 	public String getResourceFile()
 	{

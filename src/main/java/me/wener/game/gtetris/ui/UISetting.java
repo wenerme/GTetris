@@ -1,6 +1,6 @@
 package me.wener.game.gtetris.ui;
 
-import me.wener.game.gtetris.res.FontRes;
+import me.wener.game.gtetris.ui.res.FontRes;
 
 import java.awt.Color;
 import java.awt.Font;

@@ -1,15 +1,17 @@
-package me.wener.game.gtetris.scene;
+package me.wener.game.gtetris.ui.scene;
 
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 import me.wener.game.gtetris.Game;
 import me.wener.game.gtetris.GameSetting;
 import me.wener.game.gtetris.utils.U5;
-import me.wener.game.gtetris.res.TextRes;
-import me.wener.game.gtetris.ui.DialogResultListener;
-import me.wener.game.gtetris.ui.GButton;
-import me.wener.game.gtetris.ui.GDialogPanel;
-import me.wener.game.gtetris.ui.GDialogPanel.DialogButton;
-import me.wener.game.gtetris.ui.GLabel;
-import me.wener.game.gtetris.ui.GScene;
+import me.wener.game.gtetris.ui.res.TextRes;
+import me.wener.game.gtetris.ui.components.DialogResultListener;
+import me.wener.game.gtetris.ui.components.GButton;
+import me.wener.game.gtetris.ui.components.GDialogPanel;
+import me.wener.game.gtetris.ui.components.GDialogPanel.DialogButton;
+import me.wener.game.gtetris.ui.components.GLabel;
+import me.wener.game.gtetris.ui.components.GScene;
 import me.wener.game.gtetris.ui.MessageBox;
 import me.wener.game.gtetris.ui.SceneManager;
 import me.wener.game.gtetris.ui.UISetting;
@@ -134,17 +136,19 @@ public class MainMenuScene extends GScene
 		
 		// tips
 		{
-			tips = new ArrayList<String>();
-			tips.add("我的小网站: http://blog.wener.me");
-			tips.add("该项目地址: https://github.com/WenerLove/GTetris");
-			tips.add("我的围脖: http://weibo.com/u/2705020605/");
-			tips.add("非死不可: http://www.facebook.com/wenerme");
-			tips.add("游戏中按 4 添加玩家");
-			tips.add("游戏中按 2 加载游戏");
-			tips.add("游戏中按 1 保存游戏");
-			tips.add("游戏中按 6 从新开始游戏");
-			tips.add("啊!今天天气不错的样子!");
-			tips.add("好像今天运气不错,去打一注!");
+			tips = Lists.newArrayList(TextRes.Tips.getText().split("\n"));
+            //Iterables.addAll(tips, );
+
+//			tips.add("我的小网站: http://blog.wener.me");
+//			tips.add("该项目地址: https://github.com/wenerme/GTetris");
+//			tips.add("我的围脖: http://weibo.com/u/2705020605/");
+//			tips.add("非死不可: http://www.facebook.com/wenerme");
+//			tips.add("游戏中按 4 添加玩家");
+//			tips.add("游戏中按 2 加载游戏");
+//			tips.add("游戏中按 1 保存游戏");
+//			tips.add("游戏中按 6 从新开始游戏");
+//			tips.add("啊!今天天气不错的样子!");
+//			tips.add("好像今天运气不错,去打一注!");
 			
 		}
 	}

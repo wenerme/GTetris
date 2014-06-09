@@ -5,11 +5,16 @@ import java.awt.event.ComponentListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import me.wener.game.gtetris.ui.GDialogPanel.DialogButton;
+import me.wener.game.gtetris.ui.components.GDialogPanel;
+import me.wener.game.gtetris.ui.components.GDialogPanel.DialogButton;
 
 import javax.swing.JComponent;
-import javax.swing.SwingConstants;
 import lombok.Getter;
+import me.wener.game.gtetris.ui.components.DialogResultListener;
+import me.wener.game.gtetris.ui.components.GLabel;
+import me.wener.game.gtetris.ui.components.GLayeredPane;
+import me.wener.game.gtetris.ui.components.GNotifyLabel;
+import me.wener.game.gtetris.ui.components.GPanel;
 
 public final class MessageBox
 	implements DialogResultListener
@@ -54,7 +59,8 @@ public final class MessageBox
 
 	
 	@Getter DialogResultListener resultListener;
-	@Getter GDialogPanel dialogPanel;
+	@Getter
+    GDialogPanel dialogPanel;
 	private MessageBox(GDialogPanel dialogPanel)
 	{
 		this.dialogPanel = dialogPanel;
@@ -157,29 +163,3 @@ public final class MessageBox
 	}
 }
 
-class GNotifyLabel extends GLabel
-{
-	private static final long serialVersionUID = 1L;
-	GNotifyLabel()
-	{
-		UISetting.ApplySetting(this);
-		
-		setHorizontalAlignment(CENTER);
-		
-		// 设置圆角和边距
-//		LineBorder lineBorder = new LineBorder(UISetting.Foreground, 1, true);
-//		//lineBorder
-//		setBorder(BorderFactory.createCompoundBorder(lineBorder, 
-//				BorderFactory.createEmptyBorder(4, 6, 4, 6)));
-		
-		setBorder(new BubbleBorder(UISetting.Foreground,1,6,10, SwingConstants.LEFT));
-		
-		setFont(UISetting.ChineseFont.deriveFont(12f));
-		setForeground(UISetting.noticeColor);
-	}
-	GNotifyLabel(String text)
-	{
-		this();
-		setText(text);
-	}
-}

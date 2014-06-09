@@ -1,4 +1,4 @@
-package me.wener.game.gtetris.res;
+package me.wener.game.gtetris.ui.res;
 
 public enum ResType
 {

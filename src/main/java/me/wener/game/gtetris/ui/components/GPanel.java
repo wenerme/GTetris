@@ -1,6 +1,7 @@
-package me.wener.game.gtetris.ui;
+package me.wener.game.gtetris.ui.components;
 
 import javax.swing.JPanel;
+import me.wener.game.gtetris.ui.UISetting;
 
 public class GPanel extends JPanel
 {

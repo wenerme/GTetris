@@ -1,4 +1,4 @@
-package me.wener.game.gtetris.ui;
+package me.wener.game.gtetris.ui.components;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -17,9 +17,9 @@ import javax.swing.border.AbstractBorder;
 
 /**
  * 带尖角的边框
- * @see http://stackoverflow.com/questions/15025092/border-with-rounded-corners-transparency
+ * @see <a href="http://stackoverflow.com/questions/15025092/">border-with-rounded-corners-transparency</a>
  */
-class BubbleBorder extends AbstractBorder
+public class BubbleBorder extends AbstractBorder
 {
 	private static final long serialVersionUID = 1L;
 	private Color color;

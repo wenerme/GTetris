@@ -1,5 +1,8 @@
-package me.wener.game.gtetris.ui;
+package me.wener.game.gtetris.ui.components;
+import lombok.Setter;
 import me.wener.game.gtetris.GameSetting;
+import me.wener.game.gtetris.ui.SceneManager;
+import me.wener.game.gtetris.ui.components.GLayeredPane;
 
 /**
  * 游戏场景
@@ -11,6 +14,7 @@ public abstract class GScene
 {
 	 
 	private static final long serialVersionUID = 1L;
+    @Setter
 	protected SceneManager sceneManager;
 
 	public GScene()
@@ -25,7 +29,7 @@ public abstract class GScene
 	/**
 	 * 进入舞台事件
 	 */
-	protected void enterStage(SceneManager sceneManager)
+	public void enterStage(SceneManager sceneManager)
 	{
 		System.out.println("Enter Scene "+getName());
 		setFocusable(true);
@@ -35,6 +39,6 @@ public abstract class GScene
 	/**
 	 * 离开舞台事件
 	 */
-	protected void leaveStage(SceneManager sceneManager)
+    public void leaveStage(SceneManager sceneManager)
 	{}
 }

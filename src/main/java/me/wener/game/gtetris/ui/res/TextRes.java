@@ -1,4 +1,4 @@
-package me.wener.game.gtetris.res;
+package me.wener.game.gtetris.ui.res;
 
 import lombok.Getter;
 import me.wener.game.gtetris.utils.U5;
@@ -9,6 +9,7 @@ import me.wener.game.gtetris.utils.U5;
 public enum TextRes
 {
 	About(Res.Text("about.txt")),
+    Tips(Res.Text("tips.txt"))
 	;
 	// {{
 	@Getter Res res;

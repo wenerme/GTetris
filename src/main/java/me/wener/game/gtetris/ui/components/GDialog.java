@@ -1,4 +1,4 @@
-package me.wener.game.gtetris.ui;
+package me.wener.game.gtetris.ui.components;
 
 import java.awt.Dialog;
 import java.awt.Frame;

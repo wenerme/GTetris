@@ -1,6 +1,6 @@
-package me.wener.game.gtetris.ui;
+package me.wener.game.gtetris.ui.components;
 
-import me.wener.game.gtetris.ui.GDialogPanel.DialogButton;
+import me.wener.game.gtetris.ui.components.GDialogPanel.DialogButton;
 
 public interface DialogResultListener
 {
