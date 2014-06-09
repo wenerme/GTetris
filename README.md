@@ -1,3 +1,10 @@
+<!-- title: 多控版 俄罗斯方块-GTetris,java swing 实现 -->
+<!-- tag: java -->
+<!-- category: Game -->
+<!-- date: 2013/10/12 -->
+<!-- state: published -->
+<!-- link: gtetris -->
+
 俄罗斯方块/GTetris
 ==========
 
@@ -70,3 +77,4 @@ TODO
 微博: [@小小文小小爱](http://weibo.com/u/2705020605)
 
 博客: http://blog.wener.me
+
