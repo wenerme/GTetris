@@ -1,6 +1,6 @@
 package me.wener.game.gtetris.ui;
 
-import me.wener.game.gtetris.GameSetting;
+import me.wener.game.gtetris.framework.GameSetting;
 
 import java.util.HashMap;
 import java.util.Map;

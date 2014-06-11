@@ -1,8 +1,7 @@
 package me.wener.game.gtetris.ui.components;
 import lombok.Setter;
-import me.wener.game.gtetris.GameSetting;
+import me.wener.game.gtetris.framework.GameSetting;
 import me.wener.game.gtetris.ui.SceneManager;
-import me.wener.game.gtetris.ui.components.GLayeredPane;
 
 /**
  * 游戏场景

@@ -15,8 +15,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JComponent;
 import lombok.Getter;
-import me.wener.game.gtetris.Game;
-import me.wener.game.gtetris.GameSetting;
+import me.wener.game.gtetris.framework.Game;
+import me.wener.game.gtetris.framework.GameSetting;
 import me.wener.game.gtetris.utils.U5;
 import me.wener.game.gtetris.logic.CubeGraphics;
 import me.wener.game.gtetris.logic.CubeShape;
@@ -300,7 +300,7 @@ public class PlayScene extends GScene
 							{
 								if (clicked == DialogButton.Yes)
 								{
-									Game.QuitGame();
+									Game.Quit();
 								}
 							}
 						}).Show();

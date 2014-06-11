@@ -1,14 +1,12 @@
 package me.wener.game.gtetris.ui.scene;
 
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
-import me.wener.game.gtetris.Game;
-import me.wener.game.gtetris.GameSetting;
+import com.google.common.collect.Maps;
+import me.wener.game.gtetris.framework.Game;
+import me.wener.game.gtetris.framework.GameSetting;
 import me.wener.game.gtetris.utils.U5;
 import me.wener.game.gtetris.ui.res.TextRes;
-import me.wener.game.gtetris.ui.components.DialogResultListener;
 import me.wener.game.gtetris.ui.components.GButton;
-import me.wener.game.gtetris.ui.components.GDialogPanel;
 import me.wener.game.gtetris.ui.components.GDialogPanel.DialogButton;
 import me.wener.game.gtetris.ui.components.GLabel;
 import me.wener.game.gtetris.ui.components.GScene;
@@ -21,7 +19,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -51,10 +48,10 @@ public class MainMenuScene extends GScene
 		{
 			actionMap = new HashMap<String, SceneAction>();
 			SceneAction[] array = SceneAction.values();
-			for (int i = 0; i < array.length; i++)
-			{
-				actionMap.put(array[i].toString(), array[i]);
-			}
+            for (SceneAction anArray : array)
+            {
+                actionMap.put(anArray.toString(), anArray);
+            }
 		}
 		
 		private SceneAction(final String text)
@@ -75,7 +72,6 @@ public class MainMenuScene extends GScene
 	List<String> tips;
 	public MainMenuScene()
 	{
-		super();
 		setName("MainMenuScene");
 		addKeyListener(this);
 		
@@ -84,7 +80,7 @@ public class MainMenuScene extends GScene
 			int x = getWidth() - 220;
 			int y = getHeight() - 180;
 			GButton button;
-			EnumMap<SceneAction, String> menuMap = new EnumMap<SceneAction, String>(SceneAction.class);
+			EnumMap<SceneAction, String> menuMap = Maps.newEnumMap(SceneAction.class);
 			
 			menuMap.put(SceneAction.StartGame, "Start Game");
 			menuMap.put(SceneAction.ContinueGame, "Continue");
@@ -98,7 +94,7 @@ public class MainMenuScene extends GScene
 		        
 		        button = new GButton();
 		        button.setName(pairs.getKey().toString());
-				button.setText(pairs.getValue().toString());
+				button.setText(pairs.getValue());
 				button.setBounds(x , y += 30, 200, 24);
 				button.addActionListener(this);
 				add(button);
@@ -135,23 +131,9 @@ public class MainMenuScene extends GScene
 		}
 		
 		// tips
-		{
-			tips = Lists.newArrayList(TextRes.Tips.getText().split("\n"));
-            //Iterables.addAll(tips, );
+        tips = Lists.newArrayList(TextRes.Tips.getText().split("\n"));
 
-//			tips.add("我的小网站: http://blog.wener.me");
-//			tips.add("该项目地址: https://github.com/wenerme/GTetris");
-//			tips.add("我的围脖: http://weibo.com/u/2705020605/");
-//			tips.add("非死不可: http://www.facebook.com/wenerme");
-//			tips.add("游戏中按 4 添加玩家");
-//			tips.add("游戏中按 2 加载游戏");
-//			tips.add("游戏中按 1 保存游戏");
-//			tips.add("游戏中按 6 从新开始游戏");
-//			tips.add("啊!今天天气不错的样子!");
-//			tips.add("好像今天运气不错,去打一注!");
-			
-		}
-	}
+    }
 
 	public void enterStage(SceneManager sceneManager)
 	{	
@@ -212,19 +194,13 @@ public class MainMenuScene extends GScene
 			case Quit:
 				MessageBox.Build("Sure to quit ?", "亲,你确定要退出么?",
 						new DialogButton[]{DialogButton.Yes, DialogButton.No},
-						new DialogResultListener()
-						{
-							
-							@Override
-							public void OnDialogButtonClick(GDialogPanel dialogPanel,
-									DialogButton clicked)
-							{
-								if (clicked == DialogButton.Yes)
-								{
-									Game.QuitGame();
-								}
-							}
-						}).Show();
+                        (dialogPanel, clicked) -> {
+                            if (clicked == DialogButton.Yes)
+                            {
+                                Game.Quit();
+                            }
+                        }
+                ).Show();
 				break;
 			
 			default:

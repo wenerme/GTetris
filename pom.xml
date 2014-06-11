@@ -22,7 +22,7 @@
     <properties>
         <!--程序的主要配置-->
         <project.version>0.1.0</project.version>
-		<project.groupId>me.wener.game</project.groupId>
+        <project.groupId>me.wener.game</project.groupId>
         <app.start.class>me.wener.gtetris.App</app.start.class>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -62,10 +62,39 @@
             <version>${guava.version}</version>
         </dependency>
 
+        <!--Guice-->
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
             <version>${guice.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>guava</artifactId>
+                    <groupId>com.google.guava</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mycila.guice.extensions</groupId>
+            <artifactId>mycila-guice-jsr250</artifactId>
+            <version>3.2.ga</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.sonatype.sisu</groupId>
+                    <artifactId>sisu-guice</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>guava</artifactId>
+                    <groupId>com.google.guava</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
         </dependency>
 
         <dependency>
@@ -73,7 +102,19 @@
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
         </dependency>
-		
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jodd</groupId>
+            <artifactId>jodd-props</artifactId>
+            <version>${jodd.version}</version>
+        </dependency>
+
         <!--辅助-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -81,6 +122,12 @@
             <version>${lombok.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

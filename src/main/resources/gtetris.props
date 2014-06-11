@@ -1,0 +1,26 @@
+
+# 对色块的设置
+[game.setting.cube]
+size=32
+row=12
+column=18
+
+# 方块的颜色
+colors=#E6DB74
+colors=#A6E22E
+colors=#F92672
+colors=#AE81FF
+colors=#79ABFF
+colors=#FFFFFF
+
+# 对玩家控制器的设置
+[game.setting.controller]
+
+[game.setting<dev>]
+log.level=INFO
+[game.setting<dist>]
+log.level=OFF
+
+[]
+# 可有 dist 和 dev
+@profiles=dev

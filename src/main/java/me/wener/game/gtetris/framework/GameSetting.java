@@ -1,4 +1,4 @@
-package me.wener.game.gtetris;
+package me.wener.game.gtetris.framework;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;

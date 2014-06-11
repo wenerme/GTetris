@@ -1,7 +1,7 @@
 package me.wener.game.gtetris.logic;
 
 import lombok.EqualsAndHashCode;
-import me.wener.game.gtetris.GameSetting;
+import me.wener.game.gtetris.framework.GameSetting;
 import me.wener.game.gtetris.ui.components.GComponent;
 
 import java.awt.Graphics;
