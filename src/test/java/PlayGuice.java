@@ -10,6 +10,7 @@ import javax.inject.Named;
 import jodd.props.Props;
 import jodd.typeconverter.TypeConverter;
 import jodd.typeconverter.TypeConverterManager;
+import me.wener.game.gtetris.utils.ColorTypeConverter;
 import me.wener.game.gtetris.utils.InProps;
 import me.wener.game.gtetris.utils.Prop;
 import me.wener.game.gtetris.utils.PropsModule;
@@ -54,37 +55,7 @@ public class PlayGuice
     @Test
     public void testInject()
     {
-        TypeConverterManager.register(Color.class, new TypeConverter<Color>()
-        {
-            @Override
-            public Color convert(Object o)
-            {
-                // 转换 #RRGGBB 或 #AARRGGBB 为 Color 类型
-                if (o instanceof String)
-                {
-                    String str = (String) o;
-                    if (str.charAt(0) != '#')
-                        return null;
-                    Pattern regColor = Pattern.compile("^#(?<a>\\w{2})?(?<r>\\w{2})(?<g>\\w{2})(?<b>\\w{2})$");
-                    Matcher matcher = regColor.matcher(str);
-
-                    if (!matcher.find())
-                        return null;
-
-                    String alpha = matcher.group("a");
-                    alpha = alpha == null || alpha.isEmpty() ? "FF" : alpha;
-                    String red = matcher.group("r");
-                    String green = matcher.group("g");
-                    String blue = matcher.group("b");
-                    return new Color(
-                            Integer.parseInt(alpha, 16),
-                            Integer.parseInt(red, 16),
-                            Integer.parseInt(blue, 16),
-                            Integer.parseInt(green, 16));
-                }
-                return null;
-            }
-        });
+        TypeConverterManager.register(Color.class, new ColorTypeConverter());
 
         Injector injector = Guice.createInjector(PropsModule.of(props));
 
