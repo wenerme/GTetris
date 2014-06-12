@@ -27,7 +27,8 @@ public class PlayGuice
     Map<String, String> authorInfo;
     @Prop("game.setting.cube.colors")
     List<Color> colors;
-
+    @Prop(value = "game.setting", fullKey = true)
+    Map<String, String> cubeInfo;
 
     private String name;
 
@@ -95,5 +96,8 @@ public class PlayGuice
         colors.forEach(System.out::println);
         System.out.println("authorInfo");
         authorInfo.forEach((k, v) -> {System.out.println(k + ":" + v);});
+
+        System.out.println("cubeInfo");
+        cubeInfo.forEach((k, v) -> {System.out.println(k + ":" + v);});
     }
 }

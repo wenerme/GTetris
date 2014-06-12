@@ -96,7 +96,7 @@ public class InProps
             if (mapKey == null)
                 continue;
 
-            if (withSubValue || mapKey.indexOf('.') < 0)
+            if (withSubValue || mapKey.indexOf('.') < 0 || fullKey)
                 map.put(mapKey, e.getValue());
         }
 
@@ -141,11 +141,15 @@ public class InProps
         return tryConvert(key, type);
     }
 
-    @SuppressWarnings("unchecked")
     public <T> List<T> asList(String key, Class<T> type)
     {
+        return asList(key, type, false);
+    }
+    @SuppressWarnings("unchecked")
+    public <T> List<T> asList(String key, Class<T> type, boolean withSubValue)
+    {
         checkKeyType(key, type);
-        List<String> list = asStringList(key);
+        List<String> list = asStringList(key, withSubValue);
         if (type == String.class)
             return (List<T>) list;// this is safe
 
@@ -158,11 +162,15 @@ public class InProps
         return targetList;
     }
 
-    @SuppressWarnings("unchecked")
     public <T> Map<String, T> asMap(String key, Class<T> type)
     {
+        return asMap(key, type, false, false);
+    }
+    @SuppressWarnings("unchecked")
+    public <T> Map<String, T> asMap(String key, Class<T> type, boolean fullKey, boolean withSubValue)
+    {
         checkKeyType(key, type);
-        Map<String, String> map = asStringMap(key);
+        Map<String, String> map = asStringMap(key, fullKey, withSubValue);
         if (type == String.class)
             return (Map<String, T>) map;// this is safe
         Map<String, T> targetMap = new HashMap<>();

@@ -117,10 +117,10 @@ public class PropsModule extends AbstractModule
                         val = inProps.as(prop.value(), type);
                         break;
                     case List:
-                        val = inProps.asList(prop.value(), type);
+                        val = inProps.asList(prop.value(), type, prop.withSubValue());
                         break;
                     case Map:
-                        val = inProps.asMap(prop.value(), type);
+                        val = inProps.asMap(prop.value(), type, prop.fullKey(), prop.withSubValue());
                         break;
                 }
 

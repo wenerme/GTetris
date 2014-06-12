@@ -26,4 +26,7 @@ public @interface Prop
      * 指明集合类型包含元素的类型  List&lt;type&gt;, Map&lt;string,type&gt;
      */
 //    Class<?> type() default String.class;
+
+    boolean fullKey() default false;
+    boolean withSubValue() default false;
 }
