@@ -1,19 +1,13 @@
-import static java.lang.Integer.parseInt;
-
-import com.google.common.collect.Iterators;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import java.awt.Color;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.inject.Inject;
 import javax.inject.Named;
 import jodd.props.Props;
-import jodd.props.PropsEntry;
 import jodd.typeconverter.TypeConverter;
 import jodd.typeconverter.TypeConverterManager;
 import me.wener.game.gtetris.utils.InProps;
@@ -24,8 +18,18 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 @Ignore
-public class PropsTest
+public class PlayGuice
 {
+
+    @Prop("app.info.author.name")
+    private String authorName = "this is not wener";
+    @Prop("app.info.author")
+    Map<String, String> authorInfo;
+    @Prop("game.setting.cube.colors")
+    List<Color> colors;
+
+
+    private String name;
 
     private Props props;
     private InProps inProps;
@@ -40,51 +44,14 @@ public class PropsTest
         inProps = InProps.in(props);
     }
 
-    @Test
-    public void test() throws IOException
+    //    @Inject
+    public void setName(@Named("name") String name)
     {
-        props.entries()
-             .section("game.setting.cube")
-             .iterator()
-             .forEachRemaining(System.out::println);
-        System.out.println("total size: " + Iterators.size(props.iterator()));
-        System.out.println("game colors size: " + Iterators
-                .size(props.entries().section("game.setting.cube").iterator()));
-
+        this.name = name;
     }
 
     @Test
-    public void testInProps() throws IOException
-    {
-
-        System.out.println(inProps.asString("app.info.author.name"));
-        Iterator<PropsEntry> iterator = props.entries()
-                                             .section("game.setting.cube")
-                                             .iterator();
-        // 这样可行
-        iterator.forEachRemaining(e ->
-        {
-            if (e.getKey().equals("game.setting.cube.colors"))
-                System.out.println(e);
-        });
-    }
-
-    @Test
-    public void testList() throws IOException
-    {
-        List<String> list = inProps.asStringList("game.setting.cube.colors");
-        list.forEach(System.out::println);
-    }
-
-    @Test
-    public void testMap() throws IOException
-    {
-        Map<String, String> map = inProps.asStringMap("app.info.author");
-        map.forEach((k, v) -> {System.out.println(k + ":" + v);});
-    }
-
-    @Test
-    public void testTypeConvert()
+    public void testInject()
     {
         TypeConverterManager.register(Color.class, new TypeConverter<Color>()
         {
@@ -118,18 +85,15 @@ public class PropsTest
             }
         });
 
-        List<Color> list = inProps.asList("game.setting.cube.colors", Color.class);
-        list.forEach(System.out::println);
-    }
+        Injector injector = Guice.createInjector(PropsModule.of(props));
 
+        injector.injectMembers(this);
 
-
-    @Test
-    public void testConvert()
-    {
-        assert TypeConverterManager.convertType("123", Integer.class) == 123;
-        assert TypeConverterManager.convertType("123", Byte.class) == 123;
-        assert TypeConverterManager.convertType("a", Character.class) == 'a';
-
+        System.out.println("My name " + name);
+        System.out.println("author name " + authorName);
+        System.out.println("colors");
+        colors.forEach(System.out::println);
+        System.out.println("authorInfo");
+        authorInfo.forEach((k, v) -> {System.out.println(k + ":" + v);});
     }
 }

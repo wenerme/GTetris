@@ -141,10 +141,14 @@ public class InProps
         return tryConvert(key, type);
     }
 
+    @SuppressWarnings("unchecked")
     public <T> List<T> asList(String key, Class<T> type)
     {
         checkKeyType(key, type);
         List<String> list = asStringList(key);
+        if (type == String.class)
+            return (List<T>) list;// this is safe
+
         List<T> targetList = new ArrayList<>();
         for (String s : list)
         {
@@ -154,10 +158,13 @@ public class InProps
         return targetList;
     }
 
+    @SuppressWarnings("unchecked")
     public <T> Map<String, T> asMap(String key, Class<T> type)
     {
         checkKeyType(key, type);
         Map<String, String> map = asStringMap(key);
+        if (type == String.class)
+            return (Map<String, T>) map;// this is safe
         Map<String, T> targetMap = new HashMap<>();
         for (Map.Entry<String, String> entry : map.entrySet())
         {
@@ -180,8 +187,11 @@ public class InProps
         return tryConvertValue(asString(key), type);
     }
 
-    private <T> T tryConvertValue(String string, Class<T> type) {return TypeConverterManager
-            .convertType(string, type);}
+    private <T> T tryConvertValue(String string, Class<T> type)
+    {
+        return TypeConverterManager
+                .convertType(string, type);
+    }
 
     /**
      * 获取作为 map 时的 key 值
@@ -189,7 +199,7 @@ public class InProps
      */
     private String getMapKey(String key, String entryKey, boolean fullKey)
     {
-        if (entryKey.length() <= key.length() || ! entryKey.startsWith(key))
+        if (entryKey.length() <= key.length() || !entryKey.startsWith(key))
             return null;
         if (fullKey)
             return entryKey;
