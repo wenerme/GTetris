@@ -1,7 +1,7 @@
-我的小网站: http://blog.wener.me
-该项目地址: https://github.com/wenerme/GTetris
-我的围脖: http://weibo.com/u/2705020605/
-非死不可: http://www.facebook.com/wenerme
+http://blog.wener.me
+https://github.com/wenerme/GTetris
+http://weibo.com/u/2705020605/
+http://www.facebook.com/wenerme
 游戏中按 4 添加玩家
 游戏中按 2 加载游戏
 游戏中按 1 保存游戏
