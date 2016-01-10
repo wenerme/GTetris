@@ -3,9 +3,9 @@
 
 作者: wener
 邮箱: wenermail@gmail.com
-网站: blog.wener.me
+网站: wener.me
 
-项目地址: https://github.com/WenerLove/GTetris
+项目地址: https://github.com/wenerme/GTetris
 
 按键
 ------

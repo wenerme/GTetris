@@ -8,8 +8,8 @@ import me.wener.game.gtetris.ui.components.GameFrame;
  */
 public class Application {
 
-    public static void main(String[] args) {
-        GameFrame frame = new GameFrame();
-        frame.setVisible(true);
-    }
+	public static void main(String[] args) {
+		GameFrame frame = new GameFrame();
+		frame.setVisible(true);
+	}
 }

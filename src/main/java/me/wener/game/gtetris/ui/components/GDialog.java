@@ -1,19 +1,15 @@
 package me.wener.game.gtetris.ui.components;
 
-import java.awt.Dialog;
-import java.awt.Frame;
+import java.awt.*;
 
-public class GDialog extends Dialog
-{
+public class GDialog extends Dialog {
 
 	private static final long serialVersionUID = 1L;
 
-	public GDialog(Frame owner)
-	{
+	public GDialog(Frame owner) {
 		super(owner);
 		// TODO Auto-generated constructor stub
 	}
-
 
 
 }

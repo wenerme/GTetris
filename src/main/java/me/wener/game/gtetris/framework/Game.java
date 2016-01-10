@@ -1,26 +1,24 @@
 package me.wener.game.gtetris.framework;
-import java.net.URL;
 
-import me.wener.game.gtetris.ui.SceneManager;
 import lombok.Getter;
+import me.wener.game.gtetris.ui.SceneManager;
 
 
-public class Game
-{
+public class Game {
 
-	@Getter private SceneManager sceneManager;
+	@Getter
+	private SceneManager sceneManager;
 
 
-    public Game()
-	{
+	public Game() {
 		sceneManager = new SceneManager();
 	}
 
-	public static void Quit()
-	{
+	public static void Quit() {
 		System.exit(0);
 	}
 
-    public static void Start(){}
+	public static void Start() {
+	}
 
 }

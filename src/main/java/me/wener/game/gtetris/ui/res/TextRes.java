@@ -6,19 +6,18 @@ import me.wener.game.gtetris.utils.U5;
 /**
  * 枚举文本资源
  */
-public enum TextRes
-{
+public enum TextRes {
 	About(Res.Text("about.txt")),
-    Tips(Res.Text("tips.txt"))
-	;
+	Tips(Res.Text("tips.txt"));
 	// {{
-	@Getter Res res;
-	TextRes(Res res)
-	{
+	@Getter
+	Res res;
+
+	TextRes(Res res) {
 		this.res = res;
 	}
-	public String getText()
-	{
+
+	public String getText() {
 		return U5.FileGetContents(res.getResourceAsStream());
 	}
 	//}}

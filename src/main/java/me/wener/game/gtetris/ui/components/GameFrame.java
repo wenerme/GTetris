@@ -1,89 +1,78 @@
 package me.wener.game.gtetris.ui.components;
 
 
-import java.awt.Color;
-import java.awt.DisplayMode;
-import java.awt.GraphicsEnvironment;
-
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 import me.wener.game.gtetris.framework.Game;
 import me.wener.game.gtetris.framework.GameSetting;
+import me.wener.game.gtetris.ui.SceneManager;
 import me.wener.game.gtetris.ui.scene.MainMenuScene;
 import me.wener.game.gtetris.ui.scene.PlayScene;
-import me.wener.game.gtetris.ui.SceneManager;
+
+import javax.swing.*;
+import java.awt.*;
 
 
-public class GameFrame extends JFrame
-{
+public class GameFrame extends JFrame {
 
 
 	private static final long serialVersionUID = 1L;
 	GLayeredPane contentPane;
 	Game game;
-	
-	
-	public static void main(String[] args)
-	{
-		SwingUtilities.invokeLater(new Runnable()
-		{
-			public void run()
-			{
-				try
-				{
-					GameFrame frame = new GameFrame();
-					frame.setVisible(true);
-				} catch (Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
+
+
 	public GameFrame() {
-		
+
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// 居中窗口
 		{
 			DisplayMode mode = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode();
-			setBounds((mode.getWidth() - GameSetting.windowWidth)/2
-					, (mode.getHeight() - GameSetting.windowHeight)/2
+			setBounds((mode.getWidth() - GameSetting.windowWidth) / 2
+					, (mode.getHeight() - GameSetting.windowHeight) / 2
 					, GameSetting.windowWidth, GameSetting.windowHeight);
 		}
 		contentPane = new GLayeredPane();
 		contentPane.setSize(GameSetting.getWindowSize());
 		contentPane.setPreferredSize(GameSetting.getWindowSize());
 		setContentPane(contentPane);
-		
+
 		postInitialize();
-		
+
 		pack();
-		
+
 	}
-	
-	void postInitialize()
-	{
+
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GameFrame frame = new GameFrame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	void postInitialize() {
 		game = new Game();
 		SceneManager sceneManager = game.getSceneManager();
-		
+
 		// 设置标题
 		{
 			String title = "%s v%s %s";
-			title = String.format(title, GameSetting.title, GameSetting.Version,GameSetting.authorList.toString());
+			title = String.format(title, GameSetting.title, GameSetting.Version, GameSetting.authorList.toString());
 			setTitle(title);
 		}
-		
-		
-		
+
+
 		//
 		sceneManager.getStage().setLocation(0, 0);
 		sceneManager.getStage().setSize(contentPane.getSize());
 		contentPane.setLayer(sceneManager.getStage(), GLayeredPane.POPUP_LAYER);
 		contentPane.add(sceneManager.getStage());
 		contentPane.setBackground(Color.white);
-		
+
 		//
 		sceneManager.putScene(new MainMenuScene());
 		sceneManager.putScene(new PlayScene());

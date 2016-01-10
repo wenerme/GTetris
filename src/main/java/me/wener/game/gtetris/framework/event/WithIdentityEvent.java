@@ -6,10 +6,9 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Accessors(chain = true)
-public abstract class WithIdentityEvent<ID> implements Event
-{
-    @Setter(AccessLevel.PROTECTED)
-    @Getter
-    ID id;
+public abstract class WithIdentityEvent<ID> implements Event {
+	@Setter(AccessLevel.PROTECTED)
+	@Getter
+	ID id;
 
 }

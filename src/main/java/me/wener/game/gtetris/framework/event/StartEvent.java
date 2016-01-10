@@ -4,13 +4,11 @@ import lombok.Getter;
 import lombok.ToString;
 
 @ToString
-public class StartEvent extends AbstractEvent
-{
-    @Getter
-    private Event event;
+public class StartEvent extends AbstractEvent {
+	@Getter
+	private Event event;
 
-    public StartEvent(Event event)
-    {
-        this.event = event;
-    }
+	public StartEvent(Event event) {
+		this.event = event;
+	}
 }

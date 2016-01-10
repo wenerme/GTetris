@@ -1,13 +1,13 @@
 package me.wener.game.gtetris.ui.components;
 
-import javax.swing.SwingConstants;
 import me.wener.game.gtetris.ui.UISetting;
 
-public class GNotifyLabel extends GLabel
-{
+import javax.swing.*;
+
+public class GNotifyLabel extends GLabel {
 	private static final long serialVersionUID = 1L;
-	GNotifyLabel()
-	{
+
+	GNotifyLabel() {
 		UISetting.ApplySetting(this);
 
 		setHorizontalAlignment(CENTER);
@@ -18,13 +18,13 @@ public class GNotifyLabel extends GLabel
 //		setBorder(BorderFactory.createCompoundBorder(lineBorder,
 //				BorderFactory.createEmptyBorder(4, 6, 4, 6)));
 
-		setBorder(new BubbleBorder(UISetting.Foreground,1,6,10, SwingConstants.LEFT));
+		setBorder(new BubbleBorder(UISetting.Foreground, 1, 6, 10, SwingConstants.LEFT));
 
 		setFont(UISetting.ChineseFont.deriveFont(12f));
 		setForeground(UISetting.noticeColor);
 	}
-	public GNotifyLabel(String text)
-	{
+
+	public GNotifyLabel(String text) {
 		this();
 		setText(text);
 	}

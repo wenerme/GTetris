@@ -1,25 +1,24 @@
 package me.wener.game.gtetris.logic;
 
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 import me.wener.game.gtetris.logic.GameArea.CollisionType;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.Setter;
-import lombok.experimental.Accessors;
-
-@Accessors(chain=true)
+@Accessors(chain = true)
 @Data
 public class GamePlayer
-	implements Serializable
-{
+		implements Serializable {
 	private static final long serialVersionUID = 1L;
 	int point;
 	String name;
-	@Setter(value=AccessLevel.PACKAGE) GameArea  gameArea;
+	@Setter(value = AccessLevel.PACKAGE)
+	GameArea gameArea;
 
 	CubeShape cubeShape;
 	Map<Integer, GamePlayerAction> actionMap;
@@ -28,47 +27,41 @@ public class GamePlayer
 	 */
 	boolean doneAction = false;
 	boolean stop = false;
-	public GamePlayer()
-	{
+
+	public GamePlayer() {
 		actionMap = new HashMap<Integer, GamePlayerAction>();
 	}
-	
-	public GamePlayer increasePoint(int n)
-	{
+
+	public GamePlayer increasePoint(int n) {
 		point += n;
 		return this;
 	}
-	
-	public GamePlayerAction getActionByKeyCode(int keyCode)
-	{
+
+	public GamePlayerAction getActionByKeyCode(int keyCode) {
 		GamePlayerAction action;
 		action = actionMap.get(keyCode);
 		return action;
 	}
-	
+
 	/**
 	 * 自动下落,方块下一格. 如果下落有碰撞会撤销
 	 */
-	public CollisionType autoFallDown()
-	{
+	public CollisionType autoFallDown() {
 		cubeShape.fallDown(1);
 		CollisionType type;
 		type = gameArea.testCubeShape(this);
-		if (false == type.isNone())
-		{
+		if (false == type.isNone()) {
 			cubeShape.fallDown(-1);
 		}
 		return type;
 	}
-	
-	public boolean doAction(GamePlayerAction action)
-	{
+
+	public boolean doAction(GamePlayerAction action) {
 		boolean result = false;
-		
-		
+
+
 		doneAction = true;
-		switch (action)
-		{
+		switch (action) {
 			case RightRotation:
 				cubeShape.rightRotation();
 				if (CollisionType.None != gameArea.testCubeShape(this))
@@ -76,12 +69,12 @@ public class GamePlayer
 				else
 					result = true;
 				break;
-				
+
 			case FallDown:
-				while(autoFallDown().isNone())
+				while (autoFallDown().isNone())
 					;
 				break;
-				
+
 			case LeftMove:
 				cubeShape.leftMove();
 				if (CollisionType.None != gameArea.testCubeShape(this))
@@ -89,21 +82,21 @@ public class GamePlayer
 				else
 					result = true;
 				break;
-				
+
 			case RightMove:
 				cubeShape.rightMove();
 				if (CollisionType.None != gameArea.testCubeShape(this))
 					cubeShape.leftMove();
 				else
 					result = true;
-			break;
+				break;
 
 			default:
 				doneAction = false;
-			break;
+				break;
 		}
 
-		
+
 		return result;
 	}
 }

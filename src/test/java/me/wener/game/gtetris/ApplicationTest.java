@@ -6,15 +6,15 @@ package me.wener.game.gtetris;
  */
 public class ApplicationTest {
 
-    static {
-        try {
-            Class.forName("jodd.swingspy.SwingSpy").getMethod("install").invoke(null);
-        } catch (Exception ex) {
-            System.err.println("SwingSpy is not installed... " + ex.toString());
-        }
-    }
+	static {
+		try {
+			Class.forName("jodd.swingspy.SwingSpy").getMethod("install").invoke(null);
+		} catch (Exception ex) {
+			System.err.println("SwingSpy is not installed... " + ex.toString());
+		}
+	}
 
-    public static void main(String[] args) {
-        Application.main(args);
-    }
+	public static void main(String[] args) {
+		Application.main(args);
+	}
 }

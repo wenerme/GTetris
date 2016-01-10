@@ -1,27 +1,24 @@
 package me.wener.game.gtetris.logic;
-import me.wener.game.gtetris.utils.U5;
-
-import java.awt.Color;
-import java.io.Serializable;
 
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import me.wener.game.gtetris.utils.U5;
+
+import java.awt.*;
+import java.io.Serializable;
 
 
 /**
  * @author Wener
- *
  */
-@Accessors(chain=true)
+@Accessors(chain = true)
 @Data
 public class CubeShape
-	implements Serializable
-{
+		implements Serializable {
 
-	private static final long serialVersionUID = 1L;
 	/**
 	 * 恒定宽
 	 */
@@ -30,22 +27,23 @@ public class CubeShape
 	 * 恒定高
 	 */
 	static final int HEIGHT = 4;
-	
+	private static final long serialVersionUID = 1L;
 	// field
 	Color color;
-	@Setter(value=AccessLevel.NONE) int [][][] shapeArray;
+	@Setter(value = AccessLevel.NONE)
+	int[][][] shapeArray;
 	int rotate = 0;
 	int x = 0;
 	int y = 0;
 	/*
 	 * 缓存的CubeInfo
-	 */
-	@Setter(value=AccessLevel.NONE)
-	@Getter(value=AccessLevel.NONE)
+     */
+	@Setter(value = AccessLevel.NONE)
+	@Getter(value = AccessLevel.NONE)
 	private CubeInfo[][] cubeInfo;
+
 	// ctor
-	protected CubeShape(int [][][] shapeArray)
-	{
+	protected CubeShape(int[][][] shapeArray) {
 		this.shapeArray = shapeArray;
 		cubeInfo = new CubeInfo[HEIGHT][WIDTH];
 		// 初始化 设置好颜色,全不可见
@@ -54,66 +52,62 @@ public class CubeShape
 				cubeInfo[y][x] = new CubeInfo(color, false);
 	}
 
-	public int[][] getCurrentShapeArray()
-	{
+	public int[][] getCurrentShapeArray() {
 		return shapeArray[rotate];
 	}
-	public CubeInfo[][] getCurrentInfoeArray()
-	{
+
+	public CubeInfo[][] getCurrentInfoeArray() {
 		int[][] shape = getCurrentShapeArray();
 		for (int y = 0; y < shape.length; y++)
 			for (int x = 0; x < shape[y].length; x++)
 				cubeInfo[y][x].setVisible(shape[y][x] == 1).setColor(color);
-		
+
 		return cubeInfo;
 	}
-	public int getWidth()
-	{
+
+	public int getWidth() {
 		return WIDTH;
 	}
-	public int getHeight()
-	{
+
+	public int getHeight() {
 		return HEIGHT;
 	}
-	public CubeShape setRotate(int r)
-	{
+
+	public CubeShape setRotate(int r) {
 		if (r < 0)
 			return setRotate(shapeArray.length + r);
-		
+
 		rotate = r % shapeArray.length;
 		return this;
 	}
-	
-	public CubeShape randomRotate()
-	{
+
+	public CubeShape randomRotate() {
 		setRotate(U5.randomInt() % shapeArray.length);
 		return this;
 	}
-	
-	
-	public CubeShape leftRotation()
-	{
+
+
+	public CubeShape leftRotation() {
 		setRotate(rotate - 1);
 		return this;
 	}
-	public CubeShape rightRotation()
-	{
+
+	public CubeShape rightRotation() {
 		setRotate(rotate + 1);
 		return this;
 	}
-	public CubeShape leftMove()
-	{
+
+	public CubeShape leftMove() {
 		x -= 1;
 		return this;
 	}
-	public CubeShape rightMove()
-	{
+
+	public CubeShape rightMove() {
 		x += 1;
 		return this;
 	}
-	
-	public CubeShape fallDown(int n)
-	{
+
+	public CubeShape fallDown(int n) {
 		y += n;
 		return this;
 	}
